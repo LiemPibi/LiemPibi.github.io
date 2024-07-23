@@ -1,129 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
-<head<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aplikasi Absensi Karyawan</title>
-<style>
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f4f4f4;
-}
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aplikasi Absensi Karyawan</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
 
-.container {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 20px;
-}
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 20px;
+    }
 
-.header {
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  padding: 10px 0;
-}
+    .header {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 10px 0;
+    }
 
-.main {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
+    .main {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
 
-h1 {
-  margin-top: 0;
-  font-size: 24px;
-  font-weight: bold;
-}
+    h1 {
+      margin-top: 0;
+      font-size: 24px;
+      font-weight: bold;
+    }
 
-.form-group {
-  margin-bottom: 15px;
-}
+    .form-group {
+      margin-bottom: 15px;
+    }
 
-label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-}
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
 
-input[type="text"],
-input[type="email"],
-input[type="password"] {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  box-sizing: border-box;
-}
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      box-sizing: border-box;
+    }
 
-button {
-  background-color: #007bff;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-}
+    button {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
 
-button:hover {
-  background-color: #0056b3;
-}
+    button:hover {
+      background-color: #0056b3;
+    }
 
-.error {
-  color: red;
-  font-size: 12px;
-}
-</style>
+    .error {
+      color: red;
+      font-size: 12px;
+    }
+  </style>
 </head>
 <body>
-<div class="container">
-  <div class="header">
-    <h1>Aplikasi Absensi Karyawan</h1>
+  <div class="container">
+    <div class="header">
+      <h1>Aplikasi Absensi Karyawan</h1>
+    </div>
+    <div class="main">
+      <h2>Sign Up</h2>
+      <form id="signup-form">
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required>
+        </div>
+        <div class="form-group">
+          <label for="confirm-password">Confirm Password:</label>
+          <input type="password" id="confirm-password" name="confirm-password" required>
+        </div>
+        <button type="submit">Sign Up</button>
+        <div class="error" id="signup-error"></div>
+      </form>
+    </div>
   </div>
-  <div class="main">
-    <h2>Sign Up</h2>
-    <form id="signup-form">
-      <div class="form-group">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
-      </div>
-      <div class="form-group">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-      </div>
-      <div class="form-group">
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-      </div>
-      <div class="form-group">
-        <label for="confirm-password">Confirm Password:</label>
-        <input type="password" id="confirm-password" name="confirm-password" required>
-      </div>
-      <button type="submit">Sign Up</button>
-      <div class="error" id="signup-error"></div>
-    </form>
-  </div>
-</div>
-<script>
-const signupForm = document.getElementById('signup-form');
-const signupError = document.getElementById('signup-error');
+  <script>
+    const signupForm = document.getElementById('signup-form');
+    const signupError = document.getElementById('signup-error');
 
-signupForm.addEventListener('submit', (event) => {
-  event.preventDefault();
+    signupForm.addEventListener('submit', (event) => {
+      event.preventDefault();
 
-  const username = document.getElementById('username').value;
-  const email = document.getElementById('email').value;
-  const password = document.getElementById('password').value;
-  const confirmPassword = document.getElementById('confirm-password').value;
+      const username = document.getElementById('username').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirm-password').value;
 
-  if (password !== confirmPassword) {
-    signupError.textContent = 'Password does not match';
-    return;
-  }
+      if (password !== confirmPassword) {
+        signupError.textContent = 'Password does not match';
+        return;
+      }
 
-  signupError.textContent = 'Sign up successful!';
-  signupForm.reset();
-});
-</script>
+      // Add validation for empty fields
+      if (!username || !email || !password || !confirmPassword) {
+        signupError.textContent = 'Please fill in all fields';
+        return;
+      }
+
+      // Add validation for email format
+      const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      if (!emailRegex.test(email)) {
+        signupError.textContent = 'Invalid email format';
+        return;
+      }
+
+      signupError.textContent = 'Sign up successful!';
+      signupForm.reset();
+    });
+  </script>
 </body>
+</html>
