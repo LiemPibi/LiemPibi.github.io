@@ -1,25 +1,276 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Absensi Karyawan</title>
-    <link rel="stylesheet" href="styles.css">
+<head<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aplikasi Absensi Karyawan</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.main {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+}
+</style>
 </head>
 <body>
-    <div class="container">
-        <div class="nav">
-            <a href="dashboard.html">Dashboard</a>
-            <a href="absensi.html">Absensi</a>
-            <a href="signin.html">Sign In</a>
-            <a href="signup.html">Sign Up</a>
-            <a href="#" id="logout">Logout</a>
-        </div>
-        <div class="content">
-            <!-- content goes here -->
-        </div>
-    </div>
-    <script src="script.js"></script>
+<div class="container">
+  <div class="header">
+    <h1>Aplikasi Absensi Karyawan</h1>
+  </div>
+  <div class="main">
+    <h2>Sign Up</h2>
+    <form id="signup-form">
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <div class="form-group">
+        <label for="confirm-password">Confirm Password:</label>
+        <input type="password" id="confirm-password" name="confirm-password" required>
+      </div>
+      <button type="submit">Sign Up</button>
+      <div class="error" id="signup-error"></div>
+    </form>
+  </div>
+</div>
+<script>
+const signupForm = document.getElementById('signup-form');
+const signupError = document.getElementById('signup-error');
+
+signupForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  const username = document.getElementById('username').value;
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+  const confirmPassword = document.getElementById('confirm-password').value;
+
+  if (password !== confirmPassword) {
+    signupError.textContent = 'Password does not match';
+    return;
+  }
+
+  // Simulate sending data to the server
+  // ...
+
+  signupError.textContent = 'Sign up successful!';
+  signupForm.reset();
+});
+</script>
 </body>
-</html>
+</html>This code implements a basic sign-up form with validation for password matching. It does not handle actual data submission to a server, but provides a framework for that.
+
+Here's a breakdown of the code:
+
+**HTML Structure:**
+
+- **`<!DOCTYPE html>`:** Declares the document as HTML5.
+- **`<html lang="en">`:** Defines the document as HTML and sets the language to English.
+- **`<head>`:** Contains metadata about the document.
+  - **`<meta charset="UTF-8">`:** Sets character encoding to UTF-8.
+  - **`<meta name="viewport" content="width=device-width, initial-scale=1.0">`:** Configures the viewport for responsive design.
+  - **`<title>Aplikasi Absensi Karyawan</title>`:** Sets the title of the page.
+  - **`<style>`:**  Contains inline CSS for styling the elements.
+- **`<body>`:** Contains the visible content of the page.
+  - **`<div class="container">`:** Main container for the content, ensuring proper layout.
+    - **`<div class="header">`:** Header section.
+      - **`<h1>Aplikasi Absensi Karyawan</h1>`:** Heading of the page.
+    - **`<div class="main">`:** Main content area.
+      - **`<h2>Sign Up</h2>`:** Subheading for the sign-up section.
+      - **`<form id="signup-form">`:** The form for sign-up.
+        - **`<div class="form-group">`:** Contains labels and input fields for username, email, password, and confirm password.
+        - **`<button type="submit">Sign Up</button>`:**  Submit button for the form.
+        - **`<div class="error" id="signup-error"></div>`:**  A div to display error messages.
+  - **`<script>`:** Contains JavaScript for form handling and validation.
+
+**CSS Styling:**
+
+- **`.container`:**  Ensures the main content is centered and has a maximum width.
+- **`.header`:** Styles the header with background color, text color, and centering.
+- **`.main`:**  Styles the main content area with background color, padding, border-radius, and a box shadow for visual appeal.
+- **`h1`:** Styles the main heading.
+- **`.form-group`:**  Adds spacing between form fields.
+- **`label`:**  Styles labels with boldness and spacing.
+- **`input[type="text"]`, `input[type="email"]`, `input[type="password"]`:**  Styles input fields with width, padding, border, border-radius, and box-sizing.
+- **`button`:** Styles the button with background color, text color, padding, border, border-radius, and a cursor pointer for interaction.
+- **`button:hover`:**  Changes the background color of the button on hover.
+- **`.error`:** Styles error messages with red color and smaller font size.
+
+**JavaScript Functionality:**
+
+- **`const signupForm = document.getElementById('signup-form');`:**  Gets a reference to the sign-up form element.
+- **`const signupError = document.getElementById('signup-error');`:**  Gets a reference to the error message div.
+- **`signupForm.addEventListener('submit', (event) => { ... });`:**  Adds an event listener to the form to handle the submit event.
+  - **`event.preventDefault();`:**  Prevents the default form submission behavior (which would refresh the page).
+  - **`const username = document.getElementById('username').value;`:**  Gets the values entered by the user in the form fields.
+  - **`if (password !== confirmPassword) { ... }`:**  Checks if the passwords match. If not, it displays an error message in the error div.
+  - **`// Simulate sending data to the server`:**  A placeholder comment indicating where the code to send data to the server would go.
+  - **`signupError.textContent = 'Sign up successful!';`:**  Displays a success message after successful form submission.
+  - **`signupForm.reset();`:**  Clears the form fields after submission.
+
+**Key Points:**
+
+- **Basic validation:**  The code only checks if passwords match. You would need to add more validation for things like email format, password strength, and username availability.
+- **No server-side processing:**  The code only simulates sending data. You would need to implement server-side logic to handle the data submitted by the form.
+- **JavaScript basics:** The code uses DOM manipulation, event handling, and basic conditional statements to create a simple, interactive form.
+
+This code provides a good starting point for building a functional sign-up form for your web application. You would need to expand on the validation and add server-side processing to make it fully functional.
+This is a great start to a web application. You've implemented a basic sign-up form with client-side validation for password matching, which is a good practice. Here are some improvements and considerations to make your application more robust and functional:
+
+**1. Enhanced Validation:**
+
+- **Email Validation:** Use a regular expression to validate the email format.
+- **Password Strength:** Implement a password strength checker to encourage users to choose strong passwords.
+- **Username Availability:** Check if the username is already taken before submitting the form. You might need a backend script to query a database or API for this.
+
+**2. Server-side Processing:**
+
+- **Data Storage:** Use a database (like MySQL, PostgreSQL, MongoDB) to store the user data.
+- **Secure User Authentication:** Implement secure password hashing using techniques like bcrypt or Argon2.
+- **API Communication:** Create an API endpoint to handle sign-up requests from the client-side. This endpoint will validate the data, store it in the database, and potentially send a confirmation email.
+
+**3. Error Handling:**
+
+- **Clear Error Messages:** Provide specific error messages for each validation failure. 
+- **User Feedback:** Display errors in a user-friendly way, possibly near the relevant input field.
+
+**4. Improved User Experience:**
+
+- **Loading Indicators:**  Add loading indicators or animations during form submission to provide feedback to the user.
+- **Form Styling:**  Use CSS to style the form elements for visual appeal and consistency.
+- **Accessibility:** Consider accessibility guidelines when designing the form, ensuring it's usable for people with disabilities.
+
+**5. Additional Features:**
+
+- **Confirmation Email:**  Send a confirmation email to the user after successful sign-up.
+- **Password Reset:** Implement a feature allowing users to reset their forgotten passwords.
+- **Login Form:** Create a login form to allow existing users to sign in.
+
+**Example of Enhanced Validation:**
+
+```javascript
+signupForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  const username = document.getElementById('username').value;
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+  const confirmPassword = document.getElementById('confirm-password').value;
+
+  // Email Validation
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    signupError.textContent = 'Please enter a valid email address.';
+    return;
+  }
+
+  // Password Strength Check
+  if (password.length < 8) {
+    signupError.textContent = 'Password must be at least 8 characters long.';
+    return;
+  }
+
+  // ... other validations (username availability, etc.)
+
+  if (password !== confirmPassword) {
+    signupError.textContent = 'Password does not match.';
+    return;
+  }
+
+  // Send data to server using API
+  fetch('/signup', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      username: username,
+      email: email,
+      password: password 
+    })
+  })
+  .then(response => {
+    if (response.ok) {
+      signupError.textContent = 'Sign up successful!';
+      signupForm.reset();
+    } else {
+      // Handle errors from the server
+    }
+  })
+  .catch(error => {
+    console.error('Error sending data to server:', error);
+    signupError.textContent = 'An error occurred during sign up.';
+  });
+});
