@@ -38,6 +38,23 @@
       font-weight: bold;
     }
 
+    .nav {
+      background-color: #333;
+      color: #fff;
+      padding: 10px 0;
+      text-align: center;
+    }
+
+    .nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    .nav a:hover {
+      color: #ccc;
+    }
+
     .form-group {
       margin-bottom: 15px;
     }
@@ -82,67 +99,61 @@
     <div class="header">
       <h1>Aplikasi Absensi Karyawan</h1>
     </div>
+    <div class="nav">
+      <a href="#profile">Profile</a>
+      <a href="#attendance">Attendance</a>
+      <a href="#attendance-history">Attendance History</a>
+    </div>
     <div class="main">
-      <h2>Sign Up</h2>
-      <form id="signup-form">
-        <div class="form-group">
-          <label for="username">Username:</label>
-          <input type="text" id="username" name="username" required>
-        </div>
-        <div class="form-group">
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required>
-        </div>
-        <div class="form-group">
-          <label for="password">Password:</label>
-          <input type="password" id="password" name="password" required>
-        </div>
-        <div class="form-group">
-          <label for="confirm-password">Confirm Password:</label>
-          <input type="password" id="confirm-password" name="confirm-password" required>
-        </div>
-        <button type="submit">Sign Up</button>
-        <div class="error" id="signup-error"></div>
-      </form>
+      <!-- Profile page -->
+      <div id="profile">
+        <h2>Profile</h2>
+        <p>Welcome, [username]!</p>
+        <p>Email: [email]</p>
+        <button>Edit Profile</button>
+      </div>
+
+      <!-- Attendance page -->
+      <div id="attendance">
+        <h2>Attendance</h2>
+        <form id="attendance-form">
+          <div class="form-group">
+            <label for="attendance-date">Date:</label>
+            <input type="date" id="attendance-date" name="attendance-date" required>
+          </div>
+          <div class="form-group">
+            <label for="attendance-status">Status:</label>
+            <select id="attendance-status" name="attendance-status" required>
+              <option value="">Select status</option>
+              <option value="present">Present</option>
+              <option value="absent">Absent</option>
+            </select>
+          </div>
+          <button type="submit">Submit</button>
+          <div class="error" id="attendance-error"></div>
+        </form>
+      </div>
+
+      <!-- Attendance history page -->
+      <div id="attendance-history">
+        <h2>Attendance History</h2>
+        <table id="attendance-table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- attendance history data will be displayed here -->
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
+
   <script>
-    const signupForm = document.getElementById('signup-form');
-    const signupError = document.getElementById('signup-error');
-
-    signupForm.addEventListener('submit', (event) => {
-      event.preventDefault();
-
-      const username = document.getElementById('username').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const password = document.getElementById('password').value.trim();
-      const confirmPassword = document.getElementById('confirm-password').value.trim();
-
-      if (password !== confirmPassword) {
-        signupError.textContent = 'Password does not match';
-        return;
-      }
-
-      // Add validation for empty fields
-      if (!username || !email || !password || !confirmPassword) {
-        signupError.textContent = 'Please fill in all fields';
-        return;
-      }
-
-      // Add validation for email format
-      const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-      if (!emailRegex.test(email)) {
-        signupError.textContent = 'Invalid email format';
-        return;
-      }
-
-      // Simulate signup success
-      signupError.textContent = 'Sign up successful!';
-      signupForm.reset();
-
-      // Redirect to signin page
-      window.location.href = 'signin.html';
-    });
+    // Add JavaScript code to handle attendance form submission and display attendance history
   </script>
 </body>
 </html>
