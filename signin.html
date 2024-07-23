@@ -1,72 +1,132 @@
-<!-- signin.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign In</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Aplikasi Absensi Karyawan - Sign In</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .header {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 10px 0;
+    }
+
+    .main {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      margin-top: 0;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .error {
+      color: red;
+      font-size: 12px;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="nav">
-            <a href="dashboard.html">Dashboard</a>
-            <a href="absensi.html">Absensi</a>
-            <a href="signin.html" class="active">Sign In</a>
-            <a href="signup.html">Sign Up</a>
-            <a href="#" id="logout">Logout</a>
-        </div>
-        <div class="content">
-            <h2>Sign In</h2>
-            <form>
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required>
-
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
-
-                <button type="submit">Sign In</button>
-            </form>
-        </div>
+  <div class="container">
+    <div class="header">
+      <h1>Aplikasi Absensi Karyawan</h1>
     </div>
-    <script src="script.js"></script>
-</body>
-</html>
-
-<!-- signup.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div class="container">
-        <div class="nav">
-            <a href="dashboard.html">Dashboard</a>
-            <a href="absensi.html">Absensi</a>
-            <a href="signin.html">Sign In</a>
-            <a href="signup.html" class="active">Sign Up</a>
-            <a href="#" id="logout">Logout</a>
+    <div class="main">
+      <h2>Sign In</h2>
+      <form id="signin-form">
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
         </div>
-        <div class="content">
-            <h2>Sign Up</h2>
-            <form>
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required>
-
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
-
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-
-                <button type="submit">Sign Up</button>
-            </form>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required>
         </div>
+        <button type="submit">Sign In</button>
+        <div class="error" id="signin-error"></div>
+      </form>
     </div>
-    <script src="script.js"></script>
+  </div>
+  <script>
+    const signinForm = document.getElementById('signin-form');
+    const signinError = document.getElementById('signin-error');
+
+    signinForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      // Add validation for empty fields
+      if (!email || !password) {
+        signinError.textContent = 'Please fill in all fields';
+        return;
+      }
+
+      // Add validation for email format
+      const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      if (!emailRegex.test(email)) {
+        signinError.textContent = 'Invalid email format';
+        return;
+      }
+
+      // Simulate signin success
+      signinError.textContent = 'Sign in successful!';
+
+      // Redirect to dashboard page
+      window.location.href = 'dashboard.html';
+    });
+  </script>
 </body>
 </html>
