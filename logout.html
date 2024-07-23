@@ -9,11 +9,11 @@
     <h2>Logging out...</h2>
     <script>
         // Clear local storage or session storage
-        localStorage.clear();
-        sessionStorage.clear();
+        localStorage.removeItem('username');
+        localStorage.removeItem('password');
 
         // Redirect to signin page
-        window.location.href = 'ignin.html';
+        window.location.href = 'signin.html';
     </script>
 </body>
 </html>
