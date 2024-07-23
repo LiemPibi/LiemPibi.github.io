@@ -9,23 +9,25 @@
 </head>
 <body>
     <div class="container">
-        <div class="nav">
-            <a href="dashboard.html" class="active">Dashboard</a>
-            <a href="absensi.html">Absensi</a>
-            <a href="#">Profile</a>
-            <a href="#">Logout</a>
-        </div>
+        <nav>
+            <ul>
+                <li><a href="dashboard.html" class="active">Dashboard</a></li>
+                <li><a href="absensi.html">Absensi</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Logout</a></li>
+            </ul>
+        </nav>
         <div class="content">
-            <h2>Welcome, [Nama Karyawan]!</h2>
+            <h2>Welcome, <span id="employee-name">[Nama Karyawan]</span>!</h2>
             <div class="card">
                 <h3>Absensi Hari Ini</h3>
-                <p>Anda belum melakukan absensi hari ini.</p>
-                <button>Absen Sekarang</button>
+                <p id="absence-status">Anda belum melakukan absensi hari ini.</p>
+                <button id="absence-btn">Absen Sekarang</button>
             </div>
             <div class="card">
                 <h3>Riwayat Absensi</h3>
-                <p>Anda belum memiliki riwayat absensi.</p>
-                <button>Lihat Riwayat</button>
+                <p id="absence-history">Anda belum memiliki riwayat absensi.</p>
+                <button id="history-btn">Lihat Riwayat</button>
             </div>
         </div>
     </div>
