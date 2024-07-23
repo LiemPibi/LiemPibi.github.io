@@ -100,17 +100,46 @@
       <h1>Aplikasi Absensi Karyawan</h1>
     </div>
     <div class="nav">
-      <a href="#profile">Profile</a>
-      <a href="#attendance">Attendance</a>
-      <a href="#attendance-history">Attendance History</a>
+      <a href="#sign-up">Sign Up</a>
+      <a href="#login">Login</a>
     </div>
     <div class="main">
-      <!-- Profile page -->
-      <div id="profile">
-        <h2>Profile</h2>
-        <p>Welcome, [username]!</p>
-        <p>Email: [email]</p>
-        <button>Edit Profile</button>
+      <!-- Sign Up page -->
+      <div id="sign-up">
+        <h2>Sign Up</h2>
+        <form id="sign-up-form">
+          <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+          </div>
+          <button type="submit">Sign Up</button>
+          <div class="error" id="sign-up-error"></div>
+        </form>
+      </div>
+
+      <!-- Login page -->
+      <div id="login">
+        <h2>Login</h2>
+        <form id="login-form">
+          <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+          </div>
+          <button type="submit">Login</button>
+          <div class="error" id="login-error"></div>
+        </form>
       </div>
 
       <!-- Attendance page -->
@@ -133,27 +162,7 @@
           <div class="error" id="attendance-error"></div>
         </form>
       </div>
-
-      <!-- Attendance history page -->
-      <div id="attendance-history">
-        <h2>Attendance History</h2>
-        <table id="attendance-table">
-          <thead>
-            <tr>
-              <th>Date</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- attendance history data will be displayed here -->
-          </tbody>
-        </table>
-      </div>
     </div>
   </div>
-
-  <script>
-    // Add JavaScript code to handle attendance form submission and display attendance history
-  </script>
 </body>
 </html>
