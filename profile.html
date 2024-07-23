@@ -15,17 +15,17 @@
         <button id="edit-profile-btn">Edit Profile</button>
         <div id="edit-profile-form" style="display: none;">
             <h2>Edit Profile</h2>
-            <form id="edit-form">
+            <form id="edit-form" action="/update-profile" method="post">
                 <label for="full-name">Nama Lengkap:</label>
-                <input type="text" id="full-name" required><br><br>
+                <input type="text" id="full-name" name="full-name" required placeholder="Nama Lengkap"><br><br>
                 <label for="birth-date">Tanggal Lahir:</label>
-                <input type="date" id="birth-date" required><br><br>
+                <input type="date" id="birth-date" name="birth-date" required><br><br>
                 <label for="job-title">Jabatan:</label>
-                <input type="text" id="job-title" required><br><br>
+                <input type="text" id="job-title" name="job-title" required placeholder="Jabatan"><br><br>
                 <label for="email">Alamat Email:</label>
-                <input type="email" id="email" required><br><br>
+                <input type="email" id="email" name="email" required placeholder="Alamat Email"><br><br>
                 <label for="phone-number">Nomor Telepon:</label>
-                <input type="tel" id="phone-number" required><br><br>
+                <input type="tel" id="phone-number" name="phone-number" required placeholder="Nomor Telepon"><br><br>
                 <button type="submit">Simpan</button>
                 <button type="button" id="cancel-edit-btn">Batal</button>
             </form>
