@@ -136,8 +136,12 @@
         return;
       }
 
+      // Simulate signup success
       signupError.textContent = 'Sign up successful!';
       signupForm.reset();
+
+      // Redirect to signin page
+      window.location.href = 'signin.html';
     });
   </script>
 </body>
