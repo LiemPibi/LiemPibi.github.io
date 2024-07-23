@@ -47,7 +47,7 @@
             background-color: #fff;
             padding: 20px;
             margin: 20px;
-            width: calc(50% - 40px);
+            width: 100%;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         .card h3 {
@@ -78,16 +78,19 @@
         </nav>
         <div class="content">
             <h2>Welcome, <span id="employee-name"></span>!</h2>
-            <div class="flex-container">
-                <div class="card">
-                    <h3>Absensi Hari Ini</h3>
-                    <p id="absence-status">Anda belum melakukan absensi hari ini.</p>
-                    <button id="absence-btn">Absen Sekarang</button>
-                </div>
-                <div class="card">
-                    <h3>Riwayat Absensi</h3>
-                    <p id="absence-history">Anda belum memiliki riwayat absensi.</p>
-                    <button id="history-btn">Lihat Riwayat</button>
+            <div class="card">
+                <h3>Absensi dan Riwayat</h3>
+                <div class="flex-container">
+                    <div class="absensi">
+                        <h4>Absensi Hari Ini</h4>
+                        <p id="absence-status">Anda belum melakukan absensi hari ini.</p>
+                        <button id="absence-btn">Absen Sekarang</button>
+                    </div>
+                    <div class="riwayat">
+                        <h4>Riwayat Absensi</h4>
+                        <p id="absence-history">Anda belum memiliki riwayat absensi.</p>
+                        <button id="history-btn">Lihat Riwayat</button>
+                    </div>
                 </div>
             </div>
         </div>
